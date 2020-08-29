@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="card mb-3">
+        <div class="card-header">
+            Tem certeza que deseja excluir a tarefa a baixo
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{tarefa.titulo}}</h5>
+            <p class="card-text">{{tarefa.descricao}}</p>
+            <form method="post" >
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Remover</button>
+            </form>
+            <a href="{% url 'editar_tarefa' tarefa.id %}">Alterar tarefa</a>
+        </div>
+    </div>
+{% endblock %}
